@@ -27,7 +27,7 @@ namespace SuperHeroAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<SuperHero>>> Get(int id)
+        public async Task<ActionResult<SuperHero>> Get(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id); // có await vs ko có khác gì ?
             if (hero == null)
@@ -74,7 +74,7 @@ namespace SuperHeroAPI.Controllers
             _context.SuperHeroes.Remove(hero);
             await _context.SaveChangesAsync();
 
-            return Ok(await _context.SuperHeroes.ToListAsync());
+            return NoContent();
         }
 
     }
