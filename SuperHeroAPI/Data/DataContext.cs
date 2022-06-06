@@ -10,6 +10,7 @@ namespace SuperHeroAPI.Data
         }
 
         public DbSet<SuperHero> SuperHeroes { get; set; }
+        public DbSet<Enemy> Enemies { get; set; }
 
     }
 }
